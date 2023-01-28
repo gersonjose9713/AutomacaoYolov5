@@ -1,2 +1,5 @@
 # AutomacaoYolov5
- Esse código é uma aplicação de um modelo de detecção de objetos (YOLOv5) para clicar automaticamente em objetos específicos na tela.
+
+Esse código é uma aplicação de um modelo de detecção de objetos (YOLOv5) para clicar automaticamente em objetos específicos na tela. Ele usa a biblioteca PyTorch para carregar o modelo treinado (best.pt) e a biblioteca mss para capturar a tela. Ele também usa a biblioteca keyboard para detectar a pressão da tecla "q" para sair do loop e fechar a janela.
+
+O código define uma área da tela (monitor) para ser capturada e processada pelo modelo. Ele então chama a função "tela" em um loop infinito, onde a imagem é capturada, processada pelo modelo, e mostrada em uma janela. Se o modelo detecta um objeto com certeza acima de 80% (if modelo_lista[0][4] > .80) e se o objeto é uma "topeira", "start" ou "restart" (if modelo_lista[0][5] == 1 or modelo_lista[0][5] == 2 or modelo_lista[0][5] == 0), então a função "clickModelo" é chamada para mover o cursor para o centro do objeto e clicar nele. O código também mostra o FPS (frames por segundo) da captura e processamento da imagem.
