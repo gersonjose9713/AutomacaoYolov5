@@ -3,7 +3,7 @@ import cv2
 import mss
 import numpy as np
 import keyboard
-from keys import MoveMouse,LeftClick,LeftRelease
+from keys import MoveMouse,LeftClick,LeftRelease,WindMouse
 import time
 
 modelo = torch.hub.load('ultralytics/yolov5','custom', path='best.pt')
@@ -23,7 +23,7 @@ def clickModelo(modelo_lista):
         # x + monitor 'left' , y + monitor 'top'
         x = int(((modelo_lista[0][0] + modelo_lista[0][2])/2)+350)
         y = int(((modelo_lista[0][1] + modelo_lista[0][3])/2)+200)
-        MoveMouse(x,y)
+        WindMouse(x,y)
         LeftClick()
         LeftRelease()
   
